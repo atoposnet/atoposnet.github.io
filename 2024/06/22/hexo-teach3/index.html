@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hexo 创建个人博客 —— 在 GitHub 中添加 SSH 密钥 | Atopos</title><meta name="author" content="Atopos"><meta name="copyright" content="Atopos"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在 Github 中添加 SSH 密钥在本地生成 ssh 密钥（1）首先在 home 目录创建 .ssh 目录 1mkdir -p ~&#x2F;.ssh  （2） 使用 ssh-keygen 指令生成 ssh 密钥 1ssh-keygen -t rsa -C &quot;yourmail@1163.com&quot;  （2）生成的密钥保存在 ~&#x2F;.ssh&#x2F;id_rsa.pub文件中，我们可以使用 cat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 创建个人博客 —— 在 GitHub 中添加 SSH 密钥">
+<meta property="og:url" content="http://example.com/2024/06/22/hexo-teach3/index.html">
+<meta property="og:site_name" content="Atopos">
+<meta property="og:description" content="在 Github 中添加 SSH 密钥在本地生成 ssh 密钥（1）首先在 home 目录创建 .ssh 目录 1mkdir -p ~&#x2F;.ssh  （2） 使用 ssh-keygen 指令生成 ssh 密钥 1ssh-keygen -t rsa -C &quot;yourmail@1163.com&quot;  （2）生成的密钥保存在 ~&#x2F;.ssh&#x2F;id_rsa.pub文件中，我们可以使用 cat">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2024-06-22T09:46:57.000Z">
+<meta property="article:modified_time" content="2024-06-29T07:44:48.842Z">
+<meta property="article:author" content="Atopos">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/06/22/hexo-teach3/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo 创建个人博客 —— 在 GitHub 中添加 SSH 密钥',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-06-29 15:44:48'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Atopos"><span class="site-name">Atopos</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hexo 创建个人博客 —— 在 GitHub 中添加 SSH 密钥</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-06-22T09:46:57.000Z" title="Created 2024-06-22 17:46:57">2024-06-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-06-29T07:44:48.842Z" title="Updated 2024-06-29 15:44:48">2024-06-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Github-%E9%83%A8%E7%BD%B2-Hexo/">Github 部署 Hexo</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Hexo 创建个人博客 —— 在 GitHub 中添加 SSH 密钥"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="在-Github-中添加-SSH-密钥"><a href="#在-Github-中添加-SSH-密钥" class="headerlink" title="在 Github 中添加 SSH 密钥"></a>在 Github 中添加 SSH 密钥</h2><h3 id="在本地生成-ssh-密钥"><a href="#在本地生成-ssh-密钥" class="headerlink" title="在本地生成 ssh 密钥"></a>在本地生成 ssh 密钥</h3><p>（1）首先在 home 目录创建 .ssh 目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ssh</span><br></pre></td></tr></table></figure>
+
+<p>（2） 使用 <code>ssh-keygen</code> 指令生成 ssh 密钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;yourmail@1163.com&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）生成的密钥保存在 <code>~/.ssh/id_rsa.pub</code>文件中，我们可以使用 <code>cat id_rsa.pub</code> 命令查看生成的 ssh 密钥</p>
+<p><img src="/2024/06/22/hexo-teach3/step1.png"></p>
+<h3 id="把本地生成的-ssh-密钥拷贝到-github-中"><a href="#把本地生成的-ssh-密钥拷贝到-github-中" class="headerlink" title="把本地生成的 ssh 密钥拷贝到 github 中"></a>把本地生成的 ssh 密钥拷贝到 github 中</h3><p><strong>（1）首先进入 github 官网并登录账号，点击右侧的用户头像图标</strong></p>
+<p><img src="/2024/06/22/hexo-teach3/step2.png"></p>
+<p><strong>（2）在下拉的选项中点击 “Settings” 进入设置页面</strong></p>
+<p><img src="/2024/06/22/hexo-teach3/step3.png"></p>
+<p><strong>（3）点击 “Setting” 页面左边的 “SSH and GPG keys” 选项，并通过 “New SSH key” 添加 SSH key</strong></p>
+<p><img src="/2024/06/22/hexo-teach3/step4.png"></p>
+<p><strong>（4）拷贝本机上的 SSH 密钥到图中红框的位置，并点击 “Add SSH key” 完成 SSH key 的添加</strong></p>
+<p><img src="/2024/06/22/hexo-teach3/step5.png"></p>
+<p><strong>（5）SSH key 添加成功后可以在 “SSH and GPG keys” 页面看到添加的 “SSH key” 信息，如图所示</strong></p>
+<p><img src="/2024/06/22/hexo-teach3/step6.png"></p>
+<h2 id="验证-SSH-key"><a href="#验证-SSH-key" class="headerlink" title="验证 SSH key"></a>验证 SSH key</h2><h3 id="在-github-中查看仓库的-clone-地址"><a href="#在-github-中查看仓库的-clone-地址" class="headerlink" title="在 github 中查看仓库的 clone 地址"></a>在 github 中查看仓库的 clone 地址</h3><p><strong>（1）回到 github 主页，点击右侧的用户头像图标，在下拉的选项中选择 “Your repositories” 进入你的仓库列表</strong></p>
+<p><img src="/2024/06/22/hexo-teach3/step7.png"></p>
+<p><strong>（2）在仓库的列表中点击我们创建的托管仓库</strong></p>
+<p><img src="/2024/06/22/hexo-teach3/step8.png"></p>
+<p><strong>（3）在我们的仓库中点击 Code 查看仓库的 Clone 地址，注意这里我们使用 SSH 方式的 Clone 链接</strong></p>
+<p><img src="/2024/06/22/hexo-teach3/step9.png"></p>
+<h3 id="在本地-Clone-远程仓库"><a href="#在本地-Clone-远程仓库" class="headerlink" title="在本地 Clone 远程仓库"></a>在本地 Clone 远程仓库</h3><p><strong>（1）通过以下语句 clone 远程仓库</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:takorui/takorui.github.io.git</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/06/22/hexo-teach3/step10.png"></p>
+<p><strong>（2）修改 README.md 文件</strong></p>
+<p><img src="/2024/06/22/hexo-teach3/step11.png"></p>
+<p><strong>（3）上传文件到远程仓库</strong></p>
+<p><img src="/2024/06/22/hexo-teach3/step12.png"></p>
+<p><strong>（4）查看文件上传是否成功</strong></p>
+<p><img src="/2024/06/22/hexo-teach3/step13.png"></p>
+<p><strong>（5）查看托管仓库的域名的网址是否显示了我们的修改</strong></p>
+<p><img src="/2024/06/22/hexo-teach3/step14.png"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">Atopos</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/06/22/hexo-teach3/">http://example.com/2024/06/22/hexo-teach3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/22/hexo-teach4/" title="Hexo 创建个人博客 —— 在 GitHub 上部署 Hexo"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">Hexo 创建个人博客 —— 在 GitHub 上部署 Hexo</div></div></a></div><div class="next-post pull-right"><a href="/2024/06/22/hexo-teach2/" title="Hexo 创建个人博客 —— 创建 Github 托管仓库"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">Hexo 创建个人博客 —— 创建 Github 托管仓库</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Atopos</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">1</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8-Github-%E4%B8%AD%E6%B7%BB%E5%8A%A0-SSH-%E5%AF%86%E9%92%A5"><span class="toc-number">1.</span> <span class="toc-text">在 Github 中添加 SSH 密钥</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E7%94%9F%E6%88%90-ssh-%E5%AF%86%E9%92%A5"><span class="toc-number">1.1.</span> <span class="toc-text">在本地生成 ssh 密钥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%8A%E6%9C%AC%E5%9C%B0%E7%94%9F%E6%88%90%E7%9A%84-ssh-%E5%AF%86%E9%92%A5%E6%8B%B7%E8%B4%9D%E5%88%B0-github-%E4%B8%AD"><span class="toc-number">1.2.</span> <span class="toc-text">把本地生成的 ssh 密钥拷贝到 github 中</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81-SSH-key"><span class="toc-number">2.</span> <span class="toc-text">验证 SSH key</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-github-%E4%B8%AD%E6%9F%A5%E7%9C%8B%E4%BB%93%E5%BA%93%E7%9A%84-clone-%E5%9C%B0%E5%9D%80"><span class="toc-number">2.1.</span> <span class="toc-text">在 github 中查看仓库的 clone 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E6%9C%AC%E5%9C%B0-Clone-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="toc-number">2.2.</span> <span class="toc-text">在本地 Clone 远程仓库</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/22/hexo-teach4/" title="Hexo 创建个人博客 —— 在 GitHub 上部署 Hexo">Hexo 创建个人博客 —— 在 GitHub 上部署 Hexo</a><time datetime="2024-06-22T09:54:55.000Z" title="Created 2024-06-22 17:54:55">2024-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/22/hexo-teach3/" title="Hexo 创建个人博客 —— 在 GitHub 中添加 SSH 密钥">Hexo 创建个人博客 —— 在 GitHub 中添加 SSH 密钥</a><time datetime="2024-06-22T09:46:57.000Z" title="Created 2024-06-22 17:46:57">2024-06-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/06/22/hexo-teach2/" title="Hexo 创建个人博客 —— 创建 Github 托管仓库">Hexo 创建个人博客 —— 创建 Github 托管仓库</a><time datetime="2024-06-22T09:36:47.000Z" title="Created 2024-06-22 17:36:47">2024-06-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Atopos</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
